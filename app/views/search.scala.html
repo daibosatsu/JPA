@@ -1,0 +1,23 @@
+@main("search"){
+Search w/o form:
+
+<input id="wo" type="text" name="searchString"/>
+<input id="swo" type="button" value="Search"/>
+<p id="result"></p>
+<script type="text/javascript">
+$(function (){
+	$("#swo").click(function(e){
+		var s = $("#wo").val();
+		$.ajax({type:"GET",
+			url:'@routes.SolrFactory.search("' + s + '")',
+			data : {
+				searchString: s
+			},
+			success : function(data){
+				$("#result").html(data);
+			}
+		});
+	});
+});
+</script>
+}

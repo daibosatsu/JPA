@@ -1,0 +1,15 @@
+@(films: List[Film], filmForm: Form[Film])
+
+@import helper._
+
+<p>List size: @films.size() film(s)</p>
+
+@form(routes.Application.createFilm()){
+    
+	@inputText(filmForm("title")) @inputText(filmForm("description"))
+	<input type="submit" value="Create"/>
+}
+
+@for(film <- films){
+	<div id="@film.id"> Name: @film.title</div>
+}

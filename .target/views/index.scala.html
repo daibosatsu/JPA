@@ -1,0 +1,8 @@
+@(films: List[Film])
+
+@import helper._
+
+@films.size()
+@for(film <- films){
+	<div id="$film.id"> Name: $film.title</div>
+}

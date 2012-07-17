@@ -1,0 +1,9 @@
+@(bookForm: Form[Book])
+
+@import helper._
+
+@form(routes.BooksController.add()){
+    
+	@inputText(bookForm("title")) @inputText(bookForm("description"))
+	<input type="submit" value="Create"/>
+}
